@@ -1,5 +1,8 @@
-
+import numpy as np
+import pandas as pd
 from numpy import random
+import os.path
+import csv
 
 states = []
 V = []
@@ -133,8 +136,25 @@ def greedyMove():
 	return boardIndex,maxIndex
 
 alpha = 0.1
-create_all_states(board,1)
-create_all_states(board,2)
+
+#if :
+	#-------------- if csv file exists then load the csv file
+#else:
+filepath='./states.csv'
+
+if not os.path.isfile(filepath):
+	header = "This file contains all the states which can be played by a user."
+	create_all_states(board,1)
+	create_all_states(board,2)
+	#with open('states.csv', 'rb') as csvfile: #making a csv file containg all 8000 states to reduce compiling time
+		#spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+		#for row in states:
+			#print ', '.join(row)
+	np.savetxt("states.csv",states, delimiter=",", fmt='%s', header=header)
+else :
+	states = pd.read_csv('states.csv')
+
+
 totalStates = len(states)
 print ("Total States: %d" %(totalStates) )
 
