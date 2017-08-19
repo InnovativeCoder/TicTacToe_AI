@@ -23,8 +23,11 @@ def create_all_states(board,player):
 			if board[:] not in states:
 				states.append(board[:])
 				V.append(determineValue(board,player))
+
 			create_all_states(board,switchPlayer(player))
 			board[i] = 0
+
+
 def switchPlayer(player):
 	if player == 1:
 		return 2
@@ -58,6 +61,7 @@ def printBoard(board):
 
 		if ((index+1)%3) == 0:
 			print
+
 def hasWinner(board):
 
 	for player in range(1,3):
@@ -107,6 +111,7 @@ def getListOfBlankTiles(board):
 		if board[i] == 0:
 			blanks.append(i)
 	return blanks
+
 def greedyMove():
 	maxValue = 0
 	maxIndex = 0
@@ -126,10 +131,8 @@ def greedyMove():
 			maxValue = V[idx]
 		board[i] = 0
 	return boardIndex,maxIndex
+
 alpha = 0.1
-
-
-
 create_all_states(board,1)
 create_all_states(board,2)
 totalStates = len(states)
@@ -146,7 +149,7 @@ while(1):
 	initBoard()
 	player = random.randint(1,3)
 
-	print ("Player 1 = Ccompuer")
+	print ("Player 1 = Computer")
 	print ("Player 2 = You!")
 
 	printBoard(board)
@@ -180,7 +183,9 @@ while(1):
 		if True == updateBoard(board, player, userPlay):
 			if exploring:
 			  prevIndex = states.index(board)
-			
+		else:
+			print("Invalid Move")
+			continue	
     
 		printBoard(board)
 	    
