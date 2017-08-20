@@ -30,7 +30,6 @@ def create_all_states(board,player):
 			create_all_states(board,switchPlayer(player))
 			board[i] = 0
 
-
 def switchPlayer(player):
 	if player == 1:
 		return 2
@@ -121,7 +120,12 @@ def greedyMove():
 	nextMoves = getListOfBlankTiles(board)
 	boardIndex = nextMoves.pop()
 	board[boardIndex] = 1
+	print("max index is %d" %(maxIndex))
+	for k in board:
+		print ((board[k]))
+	print
 	maxIndex = states.index(board)
+
 	maxValue = V[maxIndex]
 	board[boardIndex] = 0
 
@@ -143,7 +147,9 @@ alpha = 0.1
 filepath='./states.csv'
 
 if not os.path.isfile(filepath):
+	print("hello worrld")
 	header = "This file contains all the states which can be played by a user."
+	states.append(board[:])
 	create_all_states(board,1)
 	create_all_states(board,2)
 	#with open('states.csv', 'rb') as csvfile: #making a csv file containg all 8000 states to reduce compiling time
