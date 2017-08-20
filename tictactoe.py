@@ -147,12 +147,12 @@ alpha = 0.1
 filepath='./states.csv'
 
 if not os.path.isfile(filepath):
-	print("hello worrld")
+	#print("hello worrld")
 	header = "This file contains all the states which can be played by a user."
 	states.append(board[:])
 	create_all_states(board,1)
 	create_all_states(board,2)
-	#with open('states.csv', 'rb') as csvfile: #making a csv file containg all 8000 states to reduce compiling time
+	#with open('states.csv', 'rb') as csvfile: #making a csv file containg all 8000+ states to reduce compiling time
 		#spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
 		#for row in states:
 			#print ', '.join(row)
