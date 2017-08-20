@@ -140,6 +140,7 @@ alpha = 0.1
 #if :
 	#-------------- if csv file exists then load the csv file
 #else:
+
 filepath='./states.csv'
 
 if not os.path.isfile(filepath):
@@ -150,10 +151,11 @@ if not os.path.isfile(filepath):
 		#spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
 		#for row in states:
 			#print ', '.join(row)
-	np.savetxt("states.csv",states, delimiter=",", fmt='%s', header=header)
+	np.savetxt("states.csv",states, delimiter=",", fmt='%s')    #, fmt='%s', header=header
 else :
-	states = pd.read_csv('states.csv')
-
+	states = pd.read_csv('states.csv')  #,index_col = False
+states.columns= ['1','2','3','4','5','6','7','8','9']
+print(states)
 
 totalStates = len(states)
 print ("Total States: %d" %(totalStates) )
