@@ -14,4 +14,4 @@ Steps to compile the file :-
 2. Change the directory to TicTacToe_AI
 3. then type python tictactie.py for compilation.
 
-It will take a few minutes to compile. After that play the game and make ypur model learn the moves. The states and actions are stored in an array as of now, but soon will make changes for storing them in a csv file or an excel spreadsheet. 
+Play the game and make your model learn the moves(only for single compilation). The values are currently stored in an array as of now, but soon will make changes for storing them in a csv file or an excel spreadsheet. THe states gereated recursively have been stored into the states.csv file hence reducing the compile time. 
